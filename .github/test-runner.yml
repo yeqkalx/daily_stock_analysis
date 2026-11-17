@@ -1,0 +1,24 @@
+name: Test Self Hosted Runner
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check server
+        run: |
+          echo "Hello from my server!"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
+          echo "System:"
+          uname -a
+          echo "Current directory:"
+          pwd
+          echo "Disk usage:"
+          df -h
+          echo "Memory:"
+          free -h
